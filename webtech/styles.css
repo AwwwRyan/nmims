@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: rgb(248, 156, 179);
+    padding: 0 20px;
+}
+
+.logo {
+    width: 200px;
+    height: 60px;
+    background-color: rgb(211, 157, 225);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+}
+
+.contactme,
+.aboutme {
+    width: 150px; 
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(169, 204, 235);
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 140px);
+    background-color: #f18e8e;
+    padding: 40px;
+}
+
+.projects, .workexp {
+    width: 70%; 
+    margin-bottom: 20px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
+.projectCard, .workcard {
+    height: 350px;
+    width: 350px;
+    background-color: pink;
+    border-radius: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+}
+.socials{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: rgb(241, 135, 249);
+    margin:0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
