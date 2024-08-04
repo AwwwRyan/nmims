@@ -92,35 +92,61 @@ class pracTwo{
         }
     }
 
+    static void calculateSalary(int employeeId, double basicSalary, double allowances) {
+        double grossPay = basicSalary + allowances;
+
+        double incomeTaxPercentage;
+        if (grossPay <= 5000) {
+            incomeTaxPercentage = 0;
+        } else if (grossPay <= 10000) {
+            incomeTaxPercentage = 10;
+        } else if (grossPay <= 20000) {
+            incomeTaxPercentage = 20;
+        } else {
+            incomeTaxPercentage = 30;
+        }
+
+        double incomeTax = (incomeTaxPercentage / 100) * grossPay;
+        double netPay = grossPay - incomeTax;
+
+        System.out.println("\nEmployee ID: " + employeeId);
+        System.out.println("Basic Salary (in INR): " + basicSalary);
+        System.out.println("Allowances (in INR): " + allowances);
+        System.out.println("Gross Pay (in INR): " + grossPay);
+        System.out.println("Tax Percentage Applicable: " + incomeTaxPercentage + "%");
+        System.out.println("Income Tax (in INR): " + incomeTax);
+        System.out.println("Net Pay (in INR): " + netPay);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // System.out.print("Enter marks of subject one: ");
-        // double num1=sc.nextDouble();
-        // System.out.print("Enter marks of subject two: ");
-        // double num2=sc.nextDouble();
-        // System.out.print("Enter marks of subject three: ");
-        // double num3=sc.nextDouble();
-        // System.out.print("Enter marks of subject three: ");
-        // double num4=sc.nextDouble();
-        // System.out.print("Enter marks of subject three: ");
-        // double num5=sc.nextDouble();
+        System.out.print("Enter marks of subject one: ");
+        double num1=sc.nextDouble();
+        System.out.print("Enter marks of subject two: ");
+        double num2=sc.nextDouble();
+        System.out.print("Enter marks of subject three: ");
+        double num3=sc.nextDouble();
+        System.out.print("Enter marks of subject three: ");
+        double num4=sc.nextDouble();
+        System.out.print("Enter marks of subject three: ");
+        double num5=sc.nextDouble();
 
-        // marks(num1,num2,num3,num4,num5);
+        marks(num1,num2,num3,num4,num5);
 
-        // System.out.print("Enter the value of n: ");
-        // int hello=sc.nextInt();
+        System.out.print("Enter the value of n: ");
+        int hello=sc.nextInt();
 
-        // ntimes(hello);
+        ntimes(hello);
 
-        // System.out.print("Enter the number for which u want the table: ");
-        // int table=sc.nextInt();
-        // table(table);
+        System.out.print("Enter the number for which u want the table: ");
+        int table=sc.nextInt();
+        table(table);
 
-        // System.out.print("Enter the number for which u want factorial for: ");
-        // int factnum=sc.nextInt();
-        // double fact=fact(factnum);
-        // System.out.print("fact of number is: "+fact);    
+        System.out.print("Enter the number for which u want factorial for: ");
+        int factnum=sc.nextInt();
+        double fact=fact(factnum);
+        System.out.print("fact of number is: "+fact);    
         
         System.out.print("Enter the value of n for series one: ");
         int seri1=sc.nextInt();
@@ -160,6 +186,18 @@ class pracTwo{
         int n = sc.nextInt();
 
         printHello(n);
+
+        System.out.print("Enter Employee: ");
+        int employeeId = sc.nextInt();
+
+        System.out.print("Enter Basic Salary: ");
+        double basicSalary = sc.nextDouble();
+
+        System.out.print("Enter Allowances: ");
+        double allowances = sc.nextDouble();
+
+         calculateSalary(employeeId, basicSalary, allowances);
+
 
     }
 }
