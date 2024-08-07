@@ -1,30 +1,49 @@
-processQueue=[]
+processQueue = []
 
 def addToQueue(process):
     processQueue.append(process)
+
 def removeFromQueue(process):
     processQueue.remove(process)
 
-process={}
+process = {}
 
-numberOfProcesses=int(input("enter the number of processes: "))
+numberOfProcesses = int(input("Enter the number of processes: "))
 
-#burst time
-for i in range(0,numberOfProcesses):
-    processName=input("\nenter the name of the process: ")
-    processQueue.append(processName)
+# Input burst times and initialize process data
+for i in range(numberOfProcesses):
+    processName = input("\nEnter the name of the process: ")
     if processName not in process:
-        processBurstTime=int(input("enter the burst time for the this process: "))
-        process[processName]=[processBurstTime]
+        processBurstTime = int(input("Enter the burst time for this process: "))
+        process[processName] = [processBurstTime]
+        addToQueue(processName)
 
-#waiting time
-waitingTime=0
-for i in processQueue:
-    process[i].append(waitingTime)
-    waitingTime+=process[i][0]
+# Calculate waiting time and turnaround time
+waitingTime = 0
+totalWaitingTime = 0
+totalTurnaroundTime = 0
 
-for i in processQueue:
-    process[i].append(process[i][0]+process[i][1])
+for processName in processQueue:
+    process[processName].append(waitingTime)  
+    totalWaitingTime += waitingTime  
+    waitingTime += process[processName][0] 
 
-print("\n",processQueue)
-print(process)
+# Calculate turnaround time and total turnaround time
+for processName in processQueue:
+    burstTime = process[processName][0]
+    waitingTime = process[processName][1]
+    turnaroundTime = burstTime + waitingTime
+    process[processName].append(turnaroundTime)
+    totalTurnaroundTime += turnaroundTime 
+    
+# Compute averages
+averageWaitingTime = totalWaitingTime / numberOfProcesses
+averageTurnaroundTime = totalTurnaroundTime / numberOfProcesses
+
+# Print results
+print("\nProcess: [Burst Time, Waiting Time, Turnaround Time]")
+for processName, times in process.items():
+    print(f"{processName}: {times}")
+
+print(f"\nAverage Waiting Time: {averageWaitingTime}")
+print(f"Average Turnaround Time: {averageTurnaroundTime}")
