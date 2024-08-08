@@ -12,6 +12,10 @@
     padding: 0 20px;
 }
 
+.projectCard img {
+    width: 160px;
+}
+
 .logo {
     width: 200px;
     height: 60px;
@@ -21,24 +25,30 @@
     justify-content: center;
 }
 
+.logo img {
+    height: 80px;
+}
+
 .header-links {
     display: flex;
     gap: 20px;
 }
 
-
 .contactme,
-.aboutme, .resume {
-    width: 150px; 
+.aboutme,
+.resume,
+.timetable {
+    width: 150px;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgb(169, 204, 235);
 }
-a{
+
+a {
     text-decoration: none;
-    color: black
+    color: black;
 }
 
 .body {
@@ -47,36 +57,39 @@ a{
     align-items: center;
     height: calc(100vh - 140px);
     background-color: #872f2f;
-    padding:60px;
+    padding: 60px;
 }
 
-.projects, .workexp {
-    width: 70%; 
-    margin-bottom: 20px; 
+.projects,
+.workexp {
+    width: 70%;
+    margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; 
+    justify-content: space-around;
 }
 
-.projectCard, .workcard {
-    height: 350px;
-    width: 350px;
+.projectCard,
+.workcard {
+    height: 140px;
+    width: 300px;
     background-color: pink;
     border-radius: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
 }
 
-.footer{
+.footer {
     display: flex;
     justify-content: space-between;
 }
-.socials{
+
+.socials {
     height: 50px;
     width: 50px;
     border-radius: 50%;
     background-color: rgb(241, 135, 249);
-    margin:0px 20px;
+    margin: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: center;

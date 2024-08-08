@@ -1,45 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        a:link {
+            color: blue;
+        }
+        
+        a:visited {
+            color: purple;
+        }
+        
+        a:hover {
+            color: red;
+        }
+        
+        a:active {
+            color: green;
+        }
+    </style>
 </head>
+
 <body>
     <div class="header">
-        <div class="logo">this is my logo</div>
-        <div class="header-links">
-            <a href="resume.html"><div class="resume">resume</div></a>
-            <div class="contactme">contact me</div>
-            <div class="aboutme">about me</div>
+        <div class="logo">
+            <img src="nmims.png" alt="Logo">
         </div>
-    </div>
-
-    <div class="navigation">
+        <div class="header-links">
+            <a href="resume.html">
+                <div class="resume">Resume</div>
+            </a>
+            <a href="contact.html">
+                <div class="contactme">Contact Me</div>
+            </a>
+            <a href="about.html">
+                <div class="aboutme">About Me</div>
+            </a>
+            <a href="timetable.html">
+                <div class="timetable">Time Table</div>
+            </a>
+        </div>
     </div>
 
     <div class="body">
-        <div class="projname">Projects</div>
+        <h1 id="projects" class="projname">Projects</h1><br>
         <div class="projects">
-            <div class="projectCard"></div>
-            <div class="projectCard"></div>
-            <div class="projectCard"></div>
+            <div class="projectCard">
+                <h2>Project 1</h2>
+                <ul>
+                    <li><strong>Description:</strong> This is a <em>description</em> of project 1.</li>
+                </ul> <img src="stocks.png" alt="Project 1 Image">
+            </div>
+            <div class="projectCard">
+                <h2>Project 2</h2>
+                <ul>
+                    <li><strong>Description:</strong> This is a <em>description</em> of project 1.</li>
+                </ul>
+                <img src="stocks.png" alt="Project 2 Image">
+            </div>
+            <div class="projectCard">
+                <h2>Project 3</h2>
+                <ul>
+                    <li><strong>Description:</strong> This is a <em>description</em> of project 1.</li>
+                </ul> <img src="stocks.png" alt="Project 3 Image">
+            </div>
         </div>
-        <div class="workexpname">work exprience</div>
+
+        <h1 id="workexp" class="workexpname">Work Experience</h1><br>
         <div class="workexp">
-            <div class="workcard"></div>
-            <div class="workcard"></div>
-            <div class="workcard"></div>
+            <div class="workcard">
+                <h2>Job 1</h2>
+                <p><strong>Role:</strong> Developer</p>
+                <p><strong>Duration:</strong> 1 year</p>
+            </div>
+            <div class="workcard">
+                <h2>Job 2</h2>
+                <p><strong>Role:</strong> Designer</p>
+                <p><strong>Duration:</strong> 6 months</p>
+            </div>
+            <div class="workcard">
+                <h2>Job 3</h2>
+                <p><strong>Role:</strong> Manager</p>
+                <p><strong>Duration:</strong> 2 years</p>
+            </div>
         </div>
+
+        <h1 id="contact">Contact</h1>
+        <p>If you would like to get in touch, you can find me on the following platforms:</p>
         <div class="footer">
             <div class="socials">
-                <a href="linkdin.in">Lin</a>
+                <a href="https://linkedin.com">LinkedIn</a>
             </div>
             <div class="socials">
-                <a href="discord.in">Dis</a>
+                <a href="https://discord.com">Discord</a>
             </div>
         </div>
     </div>
+
+    <iframe src="timetable.html" title="Example Frame" width=100% height="600"></iframe>
 </body>
+
 </html>

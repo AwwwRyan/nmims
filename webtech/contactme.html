@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+    
+    .checkbox-group,
+    .radio-group {
+        display: flex;
+        align-items: center;
+    }
+    
+    .checkbox-group input,
+    .radio-group input {
+        width: auto;
+        margin-right: 10px;
+    }
+    
+    .range-group {
+        display: flex;
+        align-items: center;
+    }
+    
+    .range-group input[type="range"] {
+        flex-grow: 1;
+    }
+    
+    .range-value {
+        margin-left: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="radio-group">
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Hobbies</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="hobby1" name="hobbies" value="Reading">
+                <label for="hobby1">Reading</label>
+                <input type="checkbox" id="hobby2" name="hobbies" value="Traveling">
+                <label for="hobby2">Traveling</label>
+                <input type="checkbox" id="hobby3" name="hobbies" value="Gaming">
+                <label for="hobby3">Gaming</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="india">India</option>
+
+        <option value="us">United States</option>
+        <option value="uk">United Kingdom</option>
+        <option value="canada">Canada</option>
+    </select>
+        </div>
+
+        <div class="form-group">
+            <label for="bio">Bio</label>
+            <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="experience">Experience (in years)</label>
+            <div class="range-group">
+                <input type="range" id="experience" name="experience" min="0" max="20" value="0" oninput="document.getElementById('rangeValue').innerText = this.value">
+                <span class="range-value" id="rangeValue">0</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="progress">Profile Completion</label>
+            <progress id="progress" value="50" max="100">50%</progress>
+        </div>
+
+        <button type="submit">Register</button>
+    </form>
+
+</body>
+
+</html>

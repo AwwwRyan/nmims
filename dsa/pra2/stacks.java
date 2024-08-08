@@ -1,3 +1,5 @@
+import java.util.*;
+
 class stacks {
     int[] stackArray;
     int top;
