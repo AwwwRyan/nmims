@@ -38,7 +38,7 @@ public class Bracket {
 
     public static void main(String[] args) {
         Bracket bracketChecker = new Bracket(100); 
-        String input = "{[(]}";
+        String input = "(A + B))  * C";
         boolean result = bracketChecker.areBracketsMatched(input);
         System.out.println(result);
     }
