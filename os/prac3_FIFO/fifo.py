@@ -10,7 +10,6 @@ process = {}
 
 numberOfProcesses = int(input("Enter the number of processes: "))
 
-# Input burst times and initialize process data
 for i in range(numberOfProcesses):
     processName = input("\nEnter the name of the process: ")
     if processName not in process:
@@ -18,7 +17,6 @@ for i in range(numberOfProcesses):
         process[processName] = [processBurstTime]
         addToQueue(processName)
 
-# Calculate waiting time and turnaround time
 waitingTime = 0
 totalWaitingTime = 0
 totalTurnaroundTime = 0
@@ -28,7 +26,6 @@ for processName in processQueue:
     totalWaitingTime += waitingTime  
     waitingTime += process[processName][0] 
 
-# Calculate turnaround time and total turnaround time
 for processName in processQueue:
     burstTime = process[processName][0]
     waitingTime = process[processName][1]
@@ -36,11 +33,9 @@ for processName in processQueue:
     process[processName].append(turnaroundTime)
     totalTurnaroundTime += turnaroundTime 
     
-# Compute averages
 averageWaitingTime = totalWaitingTime / numberOfProcesses
 averageTurnaroundTime = totalTurnaroundTime / numberOfProcesses
 
-# Print results
 print("\nProcess: [Burst Time, Waiting Time, Turnaround Time]")
 for processName, times in process.items():
     print(f"{processName}: {times}")
