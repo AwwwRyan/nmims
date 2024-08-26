@@ -1,48 +1,48 @@
 class Student {
-    protected int rollNumber;
-    protected String name;
+    int rollNumber;
+    String name;
 
-    public Student(int rollNumber, String name) {
+    Student(int rollNumber, String name) {
         this.rollNumber = rollNumber;
         this.name = name;
     }
 
-    public int getRollNumber() {
+    int getRollNumber() {
         return rollNumber;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 }
 
 class Test extends Student {
-    protected int mark1;
-    protected int mark2;
+    int mark1;
+    int mark2;
 
-    public Test(int rollNumber, String name, int mark1, int mark2) {
+    Test(int rollNumber, String name, int mark1, int mark2) {
         super(rollNumber, name);
         this.mark1 = mark1;
         this.mark2 = mark2;
     }
 
-    public int getMark1() {
+    int getMark1() {
         return mark1;
     }
 
-    public int getMark2() {
+    int getMark2() {
         return mark2;
     }
 }
 class Result extends Test{
-    private int sportPoint;
+    int sportPoint;
 
-    public Result(int rollNumber, String name, int mark1, int mark2, int sportPoint) {
+    Result(int rollNumber, String name, int mark1, int mark2, int sportPoint) {
         super(rollNumber, name, mark1, mark2);
         this.sportPoint = sportPoint;
     }
 
-    public void calculate() {
+    void calculate() {
         int totalMarks = mark1 + mark2 + sportPoint;
         System.out.println("Roll Number: " + getRollNumber());
         System.out.println("Name: " + getName());
