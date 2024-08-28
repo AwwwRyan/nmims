@@ -1,0 +1,3 @@
+interface sports{
+    int getSportPoints();
+}
