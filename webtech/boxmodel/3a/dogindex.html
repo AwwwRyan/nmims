@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 10px;
+            position: relative; /* Add this to allow positioning of child elements */
+        }
+        .title {
+            font-size: 24px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            background-color: rgb(163, 197, 255);
+            color: rgb(85, 70, 255);
+        }
+        .text {
+            line-height: 30px;
+        }
+
+        span {
+            color: rgb(85, 70, 255);
+        }
+
+        table {
+            border: 2px solid gray;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 2px solid gray;
+            text-align: center;
+            padding: 0px;
+            margin: 0px;
+            width: 250px;
+            height: 28px;
+        }
+
+        .label {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .top-right-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <img src="cat.png" alt="Top Right Image" class="top-right-image">
+    
+    <h2>Car Mehta</h2>
+    <div class="title">About</div>
+    <div class="text">Lorem ipsum dolor sit amet consectetur <br>adipisicing elit. Soluta incidunt,<span> ut error tempora laborum placeat blanditiis</span>eveniet quis accusamus nam.</div>
+    <div class="title">Courses</div>
+    <div class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, quae.</div>
+
+    <table>
+        <tr>
+            <th>Cource number</th>
+            <th>Course title</th>
+            <th>Semister Exam</th>
+        </tr>
+        <tr>
+            <td colspan="3">Full Credit</td>
+        </tr>
+        <tr>
+            <td>9283</td>
+            <td style="color: rgb(85, 70, 255);;">User Design</td>
+            <td>Spring 24'</td>
+        </tr>
+        <tr>
+            <td>9283</td>
+            <td>User Design</td>
+            <td>Spring 24'</td>
+        </tr>
+        <tr>
+            <td>9283</td>
+            <td>User Design</td>
+            <td>Spring 24'</td>
+        </tr>
+        <tr>
+            <td colspan="3">Listener</td>
+        </tr>
+        <tr>
+            <td>9283</td>
+            <td>User Design</td>
+            <td>Spring 24'</td>
+        </tr>
+        <tr>
+            <td>9283</td>
+            <td>User Design</td>
+            <td>Spring 24'</td>
+        </tr>
+    </table>
+
+    <div class="title">Interests</div>
+    <div class="text">Lorem, ipsum dolor sit amet 
+        <span style="background-color: rgb(163, 197, 255); color: rgb(249, 70, 100); 
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">consectetur</span> adipisicing elit. 
+        Illum <span style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+        color: blue;">a minus</span> voluptas placeat dolores quis soluta voluptatem fugit, fugiat aut!</div>
+    <div class="title">Submit Pet Information</div>
+    <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, consequuntur.</div>
+
+    <div><label class="label" for="">Name: </label><input type="text"></div>
+    <div><label class="label" for="">Phanum: </label><input type="text"></div>
+    <div><label class="label" for="">Gender: </label><input type="text"></div>
+    <input style="background-color: rgb(174, 174, 174);" type="button" value="Submit karoooo">
+    
+
+</body>
+</html>
