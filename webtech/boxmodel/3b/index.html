@@ -1,16 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lozor - Travel Diaries</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            background-color: rgb(255, 249, 183);
+            font-family: Arial, sans-serif;
+            background-color: #F5F5DC;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 100%;
+            height: 100%;
+            background-color: #F5F5DC;
+            color: #333;
+            ;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #F5F5DC;
+            color: #333;
+            border-bottom: 2px solid #0b0b0b;
+        }
+        
+        header .left-side {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header h1 {
+            font-family: 'Georgia', serif;
+            font-size: 36px;
+            margin: 0;
+        }
+        
+        header h4 {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        
+        header nav {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+        
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        header nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+        
+        header nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        header::after {
+            content: "";
+            display: block;
+            clear: both;
+            border-bottom: 2px solid #DDD;
+        }
+        
+        .main-image {
+            position: relative;
+            text-align: center;
+            height: 23vh;
+            overflow: hidden;
+        }
+        
+        .bridge-image {
+            width: calc(100% - 20px);
+            height: auto;
+            border-radius: 30px;
+            display: inline-block;
+        }
+        
+        .main-image p {
+            position: absolute;
+            bottom: 1px;
+            left: 10px;
+            right: 10px;
+            color: #FFF;
+            background-color: rgba(0, 0, 0, 0.75);
+            padding: 20px;
+        }
+        
+        .button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #B22222;
+            color: #FFF;
+            padding: 10px 15px;
+            text-decoration: none;
+        }
+        
+        .content {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+        
+        .intro {
+            width: 65%;
+        }
+        
+        .intro h2 {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            margin-top: 0;
+        }
+        
+        .about {
+            width: 20%;
+            color: #FFF;
+            background-color: #464848;
+            padding: 15px;
+            border: 1px solid #000000;
+        }
+        
+        .about img {
+            width: 70%;
+            height: auto;
+            margin-left: 30px;
+        }
+        
+        .social-icons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: start;
+        }
+        
+        .social-icon {
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 24px;
+            display: inline-block;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icon.facebook {
+            color: #3b5998;
+        }
+        
+        .social-icon.twitter {
+            color: #1DA1F2;
+            margin-left: 20px;
+        }
+        
+        .social-icon.rss {
+            color: #ff6600;
+            margin-left: 20px;
+        }
+        
+        footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-top: 2px solid #DDD;
+            margin-top: 20px;
+        }
+        
+        footer div {
+            width: 30%;
+        }
+        
+        footer h4 {
+            margin-top: 0;
+        }
+        
+        footer img {
+            width: 30%;
+            margin-right: 5px;
+        }
+        
+        footer .pictures img {
+            height: 60px;
+        }
+        
+        .friends ul {
+            list-style-type: disc;
+            padding-left: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .friends ul li {
+            width: 45%;
+            margin-bottom: 5px;
+            list-style-position: inside;
+            box-sizing: border-box;
+        }
+        
+        li {
+            color: red;
         }
     </style>
 </head>
+
 <body>
-    <div style="background-image: url('silly.jpg');" class="image"></div>
+    <div class="container">
+        <header>
+            <h1>Lozor</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Resume</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <br>
+        <br>
+
+        <div class="main-image">
+            <img src="silly.jpg" alt="Bridge Image" class="bridge-image">
+            <p>Reflections on my holiday in the United States...</p>
+            <a href="#" class="button">See article »</a>
+        </div>
+
+        <section class="content">
+            <article class="intro">
+                <h2>I'm a Great Traveller</h2>
+                <p style="font-size: 16px; "><b>Traveling is more than just visiting new places; it's a way of life, an adventure that expands the mind and enriches the soul.
+                     For me, being a traveler means embracing the unknown and stepping out of my comfort zone to explore the diverse cultures,
+                      landscapes, and experiences the world has to offer. It’s a journey that goes beyond the physical
+                     act of moving from one place to another—it's a transformative experience that shapes who I am and how I view the world.
+                    From the moment I set foot in a new destination, I am captivated by the unique tapestry of sights, sounds, and smells that define it.
+                     Every corner of the globe has its own story, and I find joy in uncovering these narratives. Whether it's wandering through bustling city markets,
+                      hiking up majestic mountains, or relaxing on serene beaches, each experience adds a new layer to my understanding of the world.
+                    Traveling has taught me the value of adaptability and openness. It’s about more than just ticking off items on a bucket list; it’s about 
+                    immersing oneself in different cultures and learning from them. Every interaction with locals, every new tradition or custom I encounter, 
+                    and every historical site I visit contributes to a broader perspective on life. I’ve learned to appreciate the beauty of diversity and the
+                     importance of cultural exchange.<br> <br>
+                    
+                    One of the most rewarding aspects of travel is the connections I make along the way. Meeting people from different backgrounds and sharing
+                     stories and experiences creates a sense of camaraderie that transcends geographical and cultural boundaries. These friendships often become
+                      cherished memories and remind me of the shared humanity that connects us all.
+                    Travel also brings with it its own set of challenges and surprises. Navigating unfamiliar places, overcoming language barriers, and adapting
+                     to different environments can be daunting, but these challenges are what make the journey memorable. They test my problem-solving skills and
+                      resilience, and ultimately, they contribute to personal growth.<br><br>
+            
+                    Beyond personal growth, traveling offers a chance to reflect on what truly matters. It provides moments of solitude and introspection that are often
+                     hard to come by in the hustle and bustle of everyday life. It’s 
+                    during these quiet moments, whether while gazing at a sunset over a remote island or sipping coffee in a quaint European café, that I find clarity and inspiration.
+                    Traveling also deepens my appreciation for the natural world. Experiencing the grandeur of nature, from the vastness of the Sahara Desert 
+                    to the tranquility of a tropical rainforest, fosters a sense of wonder and respect for our planet. It reminds me of the importance of preserving these
+                     natural wonders for future generations.</b></p>
+            </article>
+
+            <aside class="about">
+                <h3>About the Author</h3>
+                <img src="cat.png" alt="Author Image">
+                <p>Let me introduce myself! My name's Zooro...</p>
+                <p>A bit meager, is it not? This is why blogging is needed... (You can add more text here)</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon rss"><i class="fas fa-rss"></i></a>
+                </div>
+            </aside>
+        </section>
+
+        <footer>
+            <div class="tweet">
+                <h2 style="color: darkgreen;">My Last Tweet</h2>
+                <p>Hee-haw!
+                    <br>
+                    <br> 12/05 23:12</p>
+            </div>
+            <div class="pictures">
+                <h4>My Pictures</h4>
+                <img src="cat.png" alt="Picture 1">
+                <img src="cat.png" alt="Picture 2">
+                <img src="cat.png" alt="Picture 3">
+            </div>
+            <div class="friends">
+                <h4>My Friends</h4>
+                <ul>
+                    <li>Pig the rabbit</li>
+                    <li>Mooseee</li>
+                    <li>Beaver</li>
+                    <li>Super Cow</li>
+                    <li>Raf</li>
+                    <li>Mr. Fan</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
 </body>
+
 </html>
