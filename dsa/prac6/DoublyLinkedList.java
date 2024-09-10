@@ -3,24 +3,28 @@ import java.util.Scanner;
 class Node {
     int data;
     Node next;
+    Node prev;
 
     public Node(int data) {
         this.data = data;
         this.next = null;
+        this.prev = null;
     }
 }
 
-public class LinkedList {
+public class DoublyLinkedList {
     private Node head;
+    private Node tail;
 
-    public LinkedList() {
+    public DoublyLinkedList() {
         this.head = null;
+        this.tail = null;
     }
 
     public void traverse() {
         Node current = head;
         while (current != null) {
-            System.out.print(current.data + " -> ");
+            System.out.print(current.data + " <-> ");
             current = current.next;
         }
         System.out.println("null");
@@ -30,12 +34,11 @@ public class LinkedList {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
+            tail = newNode;
         } else {
-            Node current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = newNode;
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
         }
     }
 
@@ -45,22 +48,36 @@ public class LinkedList {
         }
 
         if (head.data == data) {
+            if (head.next != null) {
+                head.next.prev = null;
+            }
             head = head.next;
+            if (head == null) {
+                tail = null;
+            }
             return;
         }
 
         Node current = head;
-        while (current.next != null && current.next.data != data) {
+        while (current != null && current.data != data) {
             current = current.next;
         }
 
-        if (current.next != null) {
-            current.next = current.next.next;
+        if (current != null) {
+            if (current.prev != null) {
+                current.prev.next = current.next;
+            }
+            if (current.next != null) {
+                current.next.prev = current.prev;
+            }
+            if (current == tail) {
+                tail = current.prev;
+            }
         }
     }
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
+        DoublyLinkedList list = new DoublyLinkedList();
         Scanner scanner = new Scanner(System.in);
         int choice;
         
@@ -90,7 +107,7 @@ public class LinkedList {
                     break;
                 
                 case 3:
-                    System.out.println("Current Linked List:");
+                    System.out.println("Current Doubly Linked List:");
                     list.traverse();
                     break;
                 
