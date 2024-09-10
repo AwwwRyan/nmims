@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Node {
     int data;
     Node next;
@@ -59,22 +61,48 @@ public class LinkedList {
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-
-        list.insert(1);
-        list.insert(2);
-        list.insert(3);
-        list.insert(4);
-        list.insert(5);
-
-        System.out.println("Linked List:");
-        list.traverse();
-
-        System.out.println("Deleting node with value 3:");
-        list.delete(3);
-        list.traverse();
-
-        System.out.println("Deleting node with value 1:");
-        list.delete(1);
-        list.traverse();
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. Insert Node");
+            System.out.println("2. Delete Node");
+            System.out.println("3. Traverse List");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            
+            choice = scanner.nextInt();
+            
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter value to insert: ");
+                    int insertValue = scanner.nextInt();
+                    list.insert(insertValue);
+                    System.out.println("Node inserted.");
+                    break;
+                
+                case 2:
+                    System.out.print("Enter value to delete: ");
+                    int deleteValue = scanner.nextInt();
+                    list.delete(deleteValue);
+                    System.out.println("Node deleted if it existed.");
+                    break;
+                
+                case 3:
+                    System.out.println("Current Linked List:");
+                    list.traverse();
+                    break;
+                
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+                
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+            }
+        } while (choice != 4);
+        
+        scanner.close();
     }
 }
