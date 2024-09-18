@@ -13,7 +13,7 @@ class linear{
             boolean found = false;
             int index = -1;
             
-            for (int i = 0; i < array.length; i++) {
+            for (int i = 0; i <= array.length; i++) {
                 try {
                     if (array[i] == target) {
                         index = i;
