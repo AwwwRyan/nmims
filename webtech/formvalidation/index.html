@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script src="script.js"></script>
+    <form method="post" name="ContactForm" onsubmit="return ValidateContactForm();">
+        <p>Username: <input type="text" id="Username"></p>
+        <p>Password: <input type="password" id="Password"></p>
+        <p>Email: <input type="text" id="Email"></p>
+        <p>Aadhar: <input type="text" id="Aadhar"></p>
+        <p>PAN: <input type="text" id="PAN"></p>
+        <p>Phone: <input type="text" id="Phone"></p>
+        <p>
+            <input type="checkbox" id="DoNotCall"> Please do not call me.
+        </p>
+        <p>
+            <input type="radio" name="Option" value="1" id="Option1"> Option 1
+            <input type="radio" name="Option" value="2" id="Option2"> Option 2
+        </p>
+        <p><input type="submit" value="Send"></p>
+    </form>
+</body>
+</html>

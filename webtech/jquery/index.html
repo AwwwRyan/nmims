@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Actions</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #myDiv {
+            width: 400px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p id="myParagraph">This is a paragraph.</p>
+    <button id="toggleBtn">Toggle Paragraph</button>
+    <button id="hideShowBtn">Hide for 3 seconds</button>
+    <div id="myDiv">Hover over me!</div>
+    <button id="fadeBtn">Fade Div</button>
+    <button id="slideBtn">Slide Toggle</button>
+    <button id="fadeToggleBtn">Fade Toggle</button>
+    <button id="animateBtn">Animate Div</button>
+
+    <script>
+        $(document).ready(function() {
+            $("#toggleBtn").click(function() {
+                $("#myParagraph").toggle();
+            });
+
+            $("#hideShowBtn").click(function() {
+                $("#myParagraph").hide(function() {
+                    setTimeout(() => {
+                        $(this).show();
+                    }, 3000);
+                });
+            });
+
+            $("#myDiv").hover(
+                function() {
+                    $(this).fadeOut();
+                },
+                function() {
+                    $(this).fadeIn();
+                }
+            );
+
+            $("#fadeBtn").click(function() {
+                $("#myDiv").fadeOut(function() {
+                    setTimeout(() => {
+                        $(this).fadeIn();
+                    }, 2000);
+                });
+            });
+
+            $("#slideBtn").click(function() {
+                $("#myDiv").slideToggle();
+            });
+
+            $("#fadeToggleBtn").click(function() {
+                $("#myParagraph").fadeOut(1000, function() {
+                    setTimeout(() => {
+                        $(this).fadeIn(1000);
+                    }, 3000);
+                });
+            });
+
+            $("#animateBtn").click(function() {
+                $("#myDiv").animate({
+                    opacity: 0.5,
+                    height: "toggle"
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
