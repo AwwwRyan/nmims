@@ -14,7 +14,6 @@ class BoundedGenericClass<T extends Number> {
     }
 }
 
-// Main class
 public class restrictions {
     public static void main(String[] args) {
         BoundedGenericClass<Integer> intObject = new BoundedGenericClass<>(10);
