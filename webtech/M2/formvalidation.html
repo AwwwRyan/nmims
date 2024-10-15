@@ -1,38 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Enhanced Form Validation</title>
+    <style>
+        .input {
+            margin-bottom: 10px;
+        }
+        
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
 </head>
+
 <body>
-    <h2>Best Form Ever</h2>
+    <h2>Complete Form Validation</h2>
     <form name="myform" onsubmit="return validateform()">
         <div class="input">
             Name: <input type="text" name="fname" id="fname">
             <span class="error" id="ename"></span>
         </div>
+
+        <div class="input">
+            Email: <input type="text" name="email" id="email">
+            <span class="error" id="eemail"></span>
+        </div>
+
+        <div class="input">
+            Password: <input type="password" name="password" id="password">
+            <span class="error" id="epassword"></span>
+        </div>
+
+        <div class="input">
+            Phone: <input type="text" name="phone" id="phone">
+            <span class="error" id="ephone"></span>
+        </div>
+
+        <div class="input">
+            Address: <textarea name="address" id="address"></textarea>
+            <span class="error" id="eaddress"></span>
+        </div>
+
+        <div class="input">
+            Date of Birth: <input type="date" name="dob" id="dob">
+            <span class="error" id="edob"></span>
+        </div>
+
+        <div class="input">
+            Gender:
+            <input type="radio" name="gender" value="male" id="male"> Male
+            <input type="radio" name="gender" value="female" id="female"> Female
+            <span class="error" id="egender"></span>
+        </div>
+
+        <div class="input">
+            Marital Status:
+            <input type="radio" name="marital" value="single" id="single"> Single
+            <input type="radio" name="marital" value="married" id="married"> Married
+            <span class="error" id="emarital"></span>
+        </div>
+
+        <div class="input">
+            Interests:
+            <input type="checkbox" name="interests" value="sports" id="sports"> Sports
+            <input type="checkbox" name="interests" value="music" id="music"> Music
+            <input type="checkbox" name="interests" value="reading" id="reading"> Reading
+            <input type="checkbox" name="interests" value="traveling" id="traveling"> Traveling
+            <span class="error" id="einterests"></span>
+        </div>
+
+        <div class="input">
+            <input type="checkbox" name="accept" id="accept"> I accept the terms and conditions
+            <span class="error" id="eaccept"></span>
+        </div>
+
         <input type="submit" value="Submit">
     </form>
 
     <script>
-        function seterror(id, error){
-            // Sets error message
+        function seterror(id, error) {
             var element = document.getElementById(id);
             element.innerHTML = error;
         }
 
-        function validateform(){
-            // Validation
-            var returnval = true;
-            var name = document.forms["myform"]['fname'].value;
+        function clearErrors() {
+            var errors = document.getElementsByClassName('error');
+            for (let item of errors) {
+                item.innerHTML = "";
+            }
+        }
 
+        function calculateAge(dob) {
+            var diff = Date.now() - Date.parse(dob);
+            var age = new Date(diff).getUTCFullYear() - 1970;
+            return age;
+        }
+
+
+        function validateform() {
+            var returnval = true;
+            clearErrors();
+
+            // Name Validation
+            var name = document.forms["myform"]["fname"].value;
             if (name.length < 5) {
-                seterror('ename', "Too short");
+                seterror("ename", "Name must be at least 5 characters long");
                 returnval = false;
             }
+
+            // Email Validation
+            var email = document.forms["myform"]["email"].value;
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                seterror("eemail", "Please enter a valid email address");
+                returnval = false;
+            }
+
+            // Password Validation
+            var password = document.forms["myform"]["password"].value;
+            if (password.length < 8) {
+                seterror("epassword", "Password must be at least 8 characters long");
+                returnval = false;
+            }
+
+            // Phone Validation
+            var phone = document.forms["myform"]["phone"].value;
+            var phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(phone)) {
+                seterror("ephone", "Please enter a valid 10-digit phone number");
+                returnval = false;
+            }
+
+            // Address Validation
+            var address = document.forms["myform"]["address"].value;
+            if (address.length < 10) {
+                seterror("eaddress", "Address must be at least 10 characters long");
+                returnval = false;
+            }
+
+            // Date of Birth Validation (Must be older than 18)
+            var dob = document.forms["myform"]["dob"].value;
+            if (dob === "") {
+                seterror("edob", "Please select your date of birth");
+                returnval = false;
+            } else if (calculateAge(dob) < 18) {
+                seterror("edob", "You must be at least 18 years old");
+                returnval = false;
+            }
+
+            // Gender Validation
+            if (!document.forms["myform"]["gender"].value) {
+                seterror("egender", "Please select your gender");
+                returnval = false;
+            }
+
+            // Marital Status Validation
+            if (!document.forms["myform"]["marital"].value) {
+                seterror("emarital", "Please select your marital status");
+                returnval = false;
+            }
+
+            // Interests Validation (At least one checkbox should be selected)
+            var interests = document.forms["myform"]["interests"];
+            var interestSelected = false;
+            for (var i = 0; i < interests.length; i++) {
+                if (interests[i].checked) {
+                    interestSelected = true;
+                    break;
+                }
+            }
+            if (!interestSelected) {
+                seterror("einterests", "Please select at least one interest");
+                returnval = false;
+            }
+
+            // Checkbox Validation (Accept T&C)
+            var accept = document.forms["myform"]["accept"].checked;
+            if (!accept) {
+                seterror("eaccept", "You must accept the terms and conditions");
+                returnval = false;
+            }
+
             return returnval;
         }
     </script>
 </body>
+
 </html>
