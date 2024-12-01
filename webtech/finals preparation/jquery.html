@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        #myDiv {
+            width: 400px;
+            height: 200px;
+            background-color: lightblue;
+        }
+        
+        #myDiv2 {
+            width: 400px;
+            height: 200px;
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="toggle">toggle</button>
+    <button id="toggleslide">toggle</button>
+    <button id="togglefade">toggle</button>
+    <button id="animate">animate</button>
+    <div id="myDiv"></div>
+    <div id="myDiv2"></div>
+</body>
+
+<script>
+    $(document).ready(function() {
+
+        $("#toggle").click(function() {
+            $("#myDiv").toggle();
+        })
+
+        $("#toggleslide").click(function() {
+            $("#myDiv").slideToggle();
+        })
+
+        $("#togglefade").click(function() {
+            $("#myDiv").fadeToggle();
+        })
+
+        $("#animate").click(function() {
+            $("#myDiv2").animate({
+                opacity: 0.1,
+            }, 2000);
+        })
+
+        $("#myDiv").hover(function() {
+            $(this).css("background-color", "lightgreen");
+        })
+
+    });
+</script>
+
+</html>

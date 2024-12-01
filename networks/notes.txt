@@ -1,0 +1,25 @@
+hide
+show
+
+fadein 
+fadeout	
+
+
+
+$(document).ready(function() {}
+
+toggle/slidetoggle
+$("#id").click(function(){
+	$("targetid").toggle()/slidetoggle();
+})
+
+hide
+$("id").click(fucnction(){
+	$("#targetid").hide();
+})
+
+hide with timeout,
+.hide(
+setTimeout(function(){
+$(this)},3000)
+)

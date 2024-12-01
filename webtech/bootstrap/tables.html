@@ -4,80 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product Table</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <script src="bootstrap.bundle.min.js"></script>
     <style>
-        .table.blue-background {
-            background-color: #113964 !important;
+        body {
+            background-color: #f8f9fa;
+            /* Light background for contrast */
         }
         
-        .table.red-background {
-            background-color: #9a3a42 !important;
+        .container {
+            margin-top: 50px;
+        }
+        /* Table styles */
+        
+        .table {
+            background-color: #ffffff;
+            /* White background for the table */
+            color: #333333;
+            /* Dark text color */
+        }
+        
+        .thead-dark {
+            background-color: #007bff;
+            /* Dark blue background for the header */
+            color: #ffffff;
+            /* White text color for the header */
+        }
+        /* Alternate row colors */
+        
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+            /* Light gray for even rows */
+        }
+        
+        tbody tr:hover {
+            background-color: #e9ecef;
+            /* Light gray on hover */
+        }
+        /* Button color */
+        
+        .btn-primary {
+            background-color: #28a745;
+            /* Green background for the button */
+            border-color: #28a745;
+            /* Green border for the button */
+        }
+        
+        .btn-primary:hover {
+            background-color: #218838;
+            /* Darker green on hover */
+            border-color: #1e7e34;
+            /* Darker border on hover */
         }
     </style>
 </head>
 
 <body>
-
-    <div class="container mt-5">
-        <!-- First table with blue background -->
-        <table class="table table-bordered blue-background">
-            <thead>
+    <div class="container">
+        <h1 class="text-center">Available Phones</h1>
+        <table class="table table-bordered">
+            <thead class="">
                 <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Profession</th>
+                    <th>Model</th>
+                    <th>Specifications</th>
+                    <th>Price</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Varun</td>
-                    <td>20</td>
-                    <td>Student</td>
+                    <td>Phone Model 1</td>
+                    <td>6.1" Display, 128GB Storage, 12MP Camera</td>
+                    <td>$699</td>
+                    <td><a href="#" class="btn btn-primary">Buy Now</a></td>
                 </tr>
                 <tr>
-                    <td>Tanishka</td>
-                    <td>19</td>
-                    <td>Student</td>
+                    <td>Phone Model 2</td>
+                    <td>6.7" Display, 256GB Storage, 48MP Camera</td>
+                    <td>$799</td>
+                    <td><a href="#" class="btn btn-primary">Buy Now</a></td>
                 </tr>
                 <tr>
-                    <td>Bobby</td>
-                    <td>47</td>
-                    <td>Professor</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <!-- Second table with red background -->
-        <table class="table table-bordered red-background">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Profession</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Varun</td>
-                    <td>20</td>
-                    <td>Student</td>
-                </tr>
-                <tr>
-                    <td>Tanishka</td>
-                    <td>19</td>
-                    <td>Student</td>
-                </tr>
-                <tr>
-                    <td>Bobby</td>
-                    <td>47</td>
-                    <td>Professor</td>
+                    <td>Phone Model 3</td>
+                    <td>6.5" Display, 512GB Storage, 64MP Camera</td>
+                    <td>$899</td>
+                    <td><a href="#" class="btn btn-primary">Buy Now</a></td>
                 </tr>
             </tbody>
         </table>
     </div>
-
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 Phone Store. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>

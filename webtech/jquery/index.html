@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
         }
     </style>
 </head>
+
 <body>
     <p id="myParagraph">This is a paragraph.</p>
     <button id="toggleBtn">Toggle Paragraph</button>
@@ -32,9 +34,9 @@
 
             $("#hideShowBtn").click(function() {
                 $("#myParagraph").hide(function() {
-                    setTimeout(() => {
-                        $(this).show();
-                    }, 3000);
+                    // setTimeout(() => {
+                    //     $(this).show();
+                    // }, 3000);
                 });
             });
 
@@ -48,7 +50,7 @@
             );
 
             $("#fadeBtn").click(function() {
-                $("#myDiv").fadeOut(function() {
+                $("#myDiv").fadeOut(() => {
                     setTimeout(() => {
                         $(this).fadeIn();
                     }, 2000);
@@ -60,9 +62,9 @@
             });
 
             $("#fadeToggleBtn").click(function() {
-                $("#myParagraph").fadeOut(1000, function() {
+                $("#myParagraph").fadeOut(function() {
                     setTimeout(() => {
-                        $(this).fadeIn(1000);
+                        $(this).fadeIn();
                     }, 3000);
                 });
             });
@@ -76,4 +78,5 @@
         });
     </script>
 </body>
+
 </html>

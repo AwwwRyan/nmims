@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,56 +8,59 @@
     <link rel="stylesheet" href="bootstrap.min.css">
     <script src="bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
     <div class="container" id="cont"></div>
-        <div class="jumbotron">
-            <h1>Welcome to My Online Tutoring Classes!</h1>
-            <p>Learn HTML, CSS, and JavaScript from scratch in an interactive and engaging way. Join us to enhance your coding skills and build amazing projects.</p>
-            <a class="btn btn-primary" href="#" role="button">Enroll Now</a>
+    <div class="jumbotron">
+        <h1>Welcome to My Online Tutoring Classes!</h1>
+        <p>Learn HTML, CSS, and JavaScript from scratch in an interactive and engaging way. Join us to enhance your coding skills and build amazing projects.</p>
+        <a class="btn btn-primary" href="#">Enroll Now</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>HTML Course</h2>
+            <p>Master the basics of HTML to create the structure of web pages. You'll learn about elements, attributes, and how to use semantic HTML for better accessibility.</p>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                        More Info
+                    </button>
+                <ul class="dropdown-menu" labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">Syllabus</a></li>
+                    <li><a class="dropdown-item" href="#">Join a Class</a></li>
+                </ul>
+            </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-4">
-                <h2>HTML Course</h2>
-                <p>Master the basics of HTML to create the structure of web pages. You'll learn about elements, attributes, and how to use semantic HTML for better accessibility.</p>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+        <div class="col-md-4">
+            <h2>CSS Course</h2>
+            <p>Learn to style web pages using CSS. This course covers selectors, properties, responsive design, and layout techniques to make your sites visually appealing.</p>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
                         More Info
                     </button>
-                    <ul class="dropdown-menu" labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#">Syllabus</a></li>
-                        <li><a class="dropdown-item" href="#">Join a Class</a></li>
-                    </ul>
+                <div class="dropdown-menu" labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Syllabus</a>
+                    <a class="dropdown-item" href="#">Join a Class</a>
                 </div>
             </div>
-            
-            <div class="col-md-4">
-                <h2>CSS Course</h2>
-                <p>Learn to style web pages using CSS. This course covers selectors, properties, responsive design, and layout techniques to make your sites visually appealing.</p>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+        </div>
+
+        <div class="col-md-4">
+            <h2>JavaScript Course</h2>
+            <p>Dive into the world of programming with JavaScript. Learn about variables, functions, DOM manipulation, and event handling to create dynamic web experiences.</p>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
                         More Info
                     </button>
-                    <div class="dropdown-menu" labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Syllabus</a>
-                        <a class="dropdown-item" href="#">Join a Class</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <h2>JavaScript Course</h2>
-                <p>Dive into the world of programming with JavaScript. Learn about variables, functions, DOM manipulation, and event handling to create dynamic web experiences.</p>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-                        More Info
-                    </button>
-                    <div class="dropdown-menu" labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Syllabus</a>
-                        <a class="dropdown-item" href="#">Join a Class</a>
-                    </div>
+                <div class="dropdown-menu" labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Syllabus</a>
+                    <a class="dropdown-item" href="#">Join a Class</a>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 </body>
+
 </html>

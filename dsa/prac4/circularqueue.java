@@ -1,10 +1,8 @@
-package prac4;
-
 public class circularqueue {
     private int[] queue;
     private int front, rear, size, capacity;
 
-    public CircularQueue(int capacity) {
+    public circularqueue(int capacity) {
         this.capacity = capacity;
         queue = new int[capacity];
         front = size = 0;
@@ -62,7 +60,7 @@ public class circularqueue {
     }
 
     public static void main(String[] args) {
-        CircularQueue circularQueue = new CircularQueue(5);
+        circularqueue circularQueue = new circularqueue(5);
 
         circularQueue.enqueue(10);
         circularQueue.enqueue(20);

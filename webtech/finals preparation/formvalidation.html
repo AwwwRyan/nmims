@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="return validateForm()" action="basiccss.html">
+        <label for="">name: </label><input type="text" name="" id="name"> <span id="nameerror"></span><br><br>
+        <label for="">password: </label><input type="text" id="password"><span id="passworderror"></span> <br><br>
+        <label for="">email: </label><input type="text" name="" id="email"> <span id="emailerror"></span><br><br>
+        <label for="">number: </label><input type="text" id="number"> <span id="numbererror"></span><br><br>
+
+        <label for=""><input type="checkbox" name="skills" id="">skill1</label><br>
+        <label for=""><input type="checkbox" name="skills" id="">skill2</label><br>
+        <label for=""><input type="checkbox" name="skills" id="">skill3</label><br>
+        <label for=""><input type="checkbox" name="skills" id="">skill4</label><br><br>
+        <div id="skillserr"></div>
+
+
+        <label for=""><input type="radio" name="gender" id="">gender1</label><br>
+        <label for=""><input type="radio" name="gender" id="">gender2</label><br>
+        <label for=""><input type="radio" name="gender" id="">gender3</label><br>
+        <label for=""><input type="radio" name="gender" id="">gender4</label><br>
+        <div id="gendererr"></div><br>
+        <input type="submit" value="submit forms">
+    </form>
+</body>
+<script>
+    function validateForm() {
+
+        var name = document.getElementById("name").value;
+        var password = document.getElementById("password").value;
+        var email = document.getElementById("email").value;
+        var number = document.getElementById("number").value;
+
+        var skills = document.getElementsByName("skills");
+        var skillsselected = false;
+
+        var gender = document.getElementsByName("gender");
+        var genderselecter = false;
+
+        var nameerr = document.getElementById("nameerror");
+        var passworderr = document.getElementById("passworderror");
+        var emailerr = document.getElementById("emailerror");
+        var numbererr = document.getElementById("numbererror");
+        var skillserr = document.getElementById("skillserr");
+        var gendererr = document.getElementById("gendererr");
+
+
+        nameerr.textContent = "";
+        passworderr.textContent = "";
+        emailerr.textContent = "";
+        numbererr.textContent = "";
+        skillserr.textContent = "";
+        gendererr.textContent = ""
+
+        var passwordregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$&?])[a-zA-Z0-9!@#$&?]{8,}$/;
+        var emailregex = /^[a-zA-Z0-9._-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
+        var numberregex = /^[0-9]{10}$/;
+
+        if (name.trim() === "") {
+            nameerr.textContent = "Please enter your name";
+            return false;
+        }
+
+
+        if (password.trim() === "") {
+            passworderr.textContent = "password cannot be empty";
+            return false;
+        } else if (!passwordregex.test(password.trim())) {
+            passworderr.textContent = "password should be 8 character long and should contain at least one uppercase, one lower case, one number and one special character";
+            return false;
+        } else {
+            passworderr.textContent = "";
+        }
+
+        if (email.trim() === "") {
+            emailerr.textContent = "Please enter your email";
+            return false;
+        } else if (!emailregex.test(email)) {
+            emailerr.textContent = "Invalid email";
+            return false;
+        } else {
+            emailerr.textContent = "";
+        }
+
+        if (number.trim() === "") {
+            numbererr.textContent = "Please enter your number";
+            return false;
+        } else if (!numberregex.test(number)) {
+            numbererr.textContent = "number should be only numbers and of 10 digits";
+            return false;
+        } else {
+            numbererr.textContent = "";
+        }
+
+
+        for (var i = 0; i < skills.length; i++) {
+            if (skills[i].checked) {
+                skillsselected = true;
+                break;
+            }
+        }
+
+        if (!skillsselected) {
+            skillserr.textContent = "Please select at least one skill";
+            return false;
+        } else {
+            skillserr.textContent = "";
+        }
+
+        for (let i = 0; i < gender.length; i++) {
+            if (gender[i].checked) {
+                genderselecter = true;
+                break;
+            }
+        }
+
+        if (!genderselecter) {
+            gendererr.textContent = "select a gender";
+            return false;
+        } else {
+            gendererr.textContent = "";
+        }
+
+        alert("form submitted successfully");
+        return true;
+    }
+</script>
+
+</html>

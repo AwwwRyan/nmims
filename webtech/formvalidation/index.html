@@ -1,28 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Form Validation with Regex and Radio/Checkbox</title>
 </head>
+
 <body>
-    <script src="script.js"></script>
-    <form method="post" name="ContactForm" onsubmit="return ValidateContactForm();">
-        <p>Username: <input type="text" id="Username"></p>
-        <p>Password: <input type="password" id="Password"></p>
-        <p>Email: <input type="text" id="Email"></p>
-        <p>Aadhar: <input type="text" id="Aadhar"></p>
-        <p>PAN: <input type="text" id="PAN"></p>
-        <p>Phone: <input type="text" id="Phone"></p>
-        <p>
-            <input type="checkbox" id="DoNotCall"> Please do not call me.
-        </p>
-        <p>
-            <input type="radio" name="Option" value="1" id="Option1"> Option 1
-            <input type="radio" name="Option" value="2" id="Option2"> Option 2
-        </p>
-        <p><input type="submit" value="Send"></p>
+
+    <form id="myForm" onsubmit="return validateForm()">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <span id="email-error" style="color: red;"></span>
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <span id="password-error" style="color: red;"></span>
+        <br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone">
+        <span id="phone-error" style="color: red;"></span>
+        <br><br>
+
+        <h3>Skills (Checklist):</h3>
+        <label><input type="checkbox" name="skills" value="HTML"> HTML</label><br>
+        <label><input type="checkbox" name="skills" value="CSS"> CSS</label><br>
+        <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label><br>
+        <label><input type="checkbox" name="skills" value="Java"> Java</label>
+        <span id="skills-error" style="color: red;"></span>
+        <br><br>
+
+        <h3>Gender (Radio Button):</h3>
+        <label><input type="radio" name="gender" value="Male"> Male</label><br>
+        <label><input type="radio" name="gender" value="Female"> Female</label><br>
+        <label><input type="radio" name="gender" value="Other"> Other</label>
+        <span id="gender-error" style="color: red;"></span>
+        <br><br>
+
+        <input type="submit" value="Submit Form">
+
     </form>
+
+    <script>
+        // Function to validate the form 
+        function validateForm() { // Get input values 
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const phone = document.getElementById("phone").value;
+            // Regular expressions for validation 
+
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
+            const phoneRegex = /^\d{10}$/;
+
+            // Validate email 
+            const emailError = document.getElementById("email-error");
+            if (!emailRegex.test(email)) {
+                emailError.textContent = "Please enter a valid email address.";
+                return false;
+            } else {
+                emailError.textContent = "";
+            }
+
+            // Validatepassword
+            const passwordError = document.getElementById("password-error");
+            if (!passwordRegex.test(password)) {
+                passwordError.textContent = "Password must be at least 8 characters long and contain at least one letter and one number.";
+                return false;
+            } else {
+                passwordError.textContent = "";
+            }
+
+            // Validate phone number 
+            const phoneError = document.getElementById("phone-error");
+            if (!phoneRegex.test(phone)) {
+                phoneError.textContent = "Please enter a valid 10-digit phone number.";
+                return false;
+            } else {
+                phoneError.textContent = "";
+            }
+
+            // Validate checkbox group (skills checklist) 
+            const checkboxes = document.getElementsByName('skills');
+            let isCheckboxChecked = false;
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    isCheckboxChecked = true;
+                    break;
+                }
+            }
+
+            const skillsError = document.getElementById("skills-error");
+            if (!isCheckboxChecked) {
+                skillsError.textContent = "Please select at least one skill.";
+                return false;
+            } else {
+                skillsError.textContent = "";
+            }
+
+            // Validate radio button group (gender) 
+            const radioButtons = document.getElementsByName('gender');
+            let isRadioSelected = false;
+            for (let i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].checked) {
+                    isRadioSelected = true;
+                    break;
+                }
+            }
+            const genderError = document.getElementById("gender-error");
+            if (!isRadioSelected) {
+                genderError.textContent = "Please select your gender.";
+                return false;
+            } else {
+                genderError.textContent = "";
+            } // If all validations pass, allow form submission 
+
+            alert("Form submitted successfully!");
+            window.location.href = "index.html";
+            return true;
+        }
+    </script>
+
 </body>
+
 </html>
